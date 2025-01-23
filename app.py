@@ -55,3 +55,8 @@ def thumbnail(episodeId):
     link = "/".join(x[:-1])
     data = get_postman_urls(link)
     return {"thumb": data[1]}
+
+if __name__ == "__app__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0",
+ port=port)
