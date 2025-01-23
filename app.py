@@ -33,7 +33,12 @@ def gen(episodeId):
 
 @app.route("/")
 def home():
-    return "Hello, World!"
+    return "Hello, Heroku!"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0",
+ port=port)
 
 
 @app.route("/upload/<episodeId>")
@@ -56,11 +61,3 @@ def thumbnail(episodeId):
     data = get_postman_urls(link)
     return {"thumb": data[1]}
 
-@app.route("/")
-def home():
-    return "Hello, Heroku!"
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0",
- port=port)
